@@ -1,0 +1,135 @@
+﻿
+@model IEnumerable<TMDT_5.Models.laptop> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@{Html.RenderAction("getCompany", "Laptop"); } 
+<br /> 
+@{Html.RenderAction("getScreenResolution", "Laptop"); }
+<br /> 
+@{Html.RenderAction("getType", "Laptop"); }
+<br />
+@*@{Html.RenderAction("getInch", "Laptop"); }
+<br />*@
+
+@{Html.RenderAction("getCPU", "Laptop"); }
+<br /> 
+@{Html.RenderAction("getGen", "Laptop"); }
+<br />
+@{Html.RenderAction("getMemory", "Laptop"); }
+<br />
+
+<input type="button" name="name" onclick="find();" value="Assign" /> 
+<ul id="laptop"> </ul> 
+<script src="~/Scripts/jquery-3.4.1.min.js"></script> 
+<script> 
+ 
+    var uri = "../../api/LaptopAPI" 
+    $(document).ready(function () { 
+        $.getJSON(uri).done(function (data) { 
+            $.each(data, function (key, item) { 
+                $('<li>', { text: formatItem(item) }).appendTo($('#laptop')); 
+            }); 
+        }); 
+ 
+    }); 
+    function formatItem(item) { 
+        return item.Product + ':' + item.ScreenResolution + ':' +item.CPU; 
+    } 
+    function find() { 
+        $('#laptop').text(''); 
+        var idString = ""; 
+        var idCompany = $('#2').find('input[type=checkbox]'); 
+        for (var i = 0; i < idCompany.length; i++) { 
+            if (idCompany[i].checked) { 
+                if (idString == "") { 
+                    idString = "2-" + idCompany[i].name; 
+                } 
+                else { 
+                    idString = idString + "_2-" + idCompany[i].name; 
+                } 
+            }             
+        }
+        var idScreenResolution = $('#3').find('input[type=checkbox]');
+        for (var i = 0; i < idScreenResolution.length; i++) {
+            if (idScreenResolution[i].checked) {
+                if (idString == "") {
+                    idString = "3-" + idScreenResolution[i].name;
+                }
+                else {
+                    idString = idString + "_3-" + idScreenResolution[i].name;
+                }
+            }
+        }
+        var idType = $('#4').find('input[type=checkbox]');
+        for (var i = 0; i < idType.length; i++) {
+            if (idType[i].checked) {
+                if (idString == "") {
+                    idString = "4-" + idType[i].name;
+                }
+                else {
+                    idString = idString + "_4-" + idType[i].name;
+                }
+            }
+        }
+        var idInch = $('#5').find('input[type=checkbox]');
+        for (var i = 0; i < idInch.length; i++) {
+            if (idInch[i].checked) {
+                if (idString == "") {
+                    idString = "5-" + idInch[i].name;
+                }
+                else {
+                    idString = idString + "_5-" + idInch[i].name;
+                }
+            }
+        }
+        var idCpu = $('#6').find('input[type=checkbox]');
+        for (var i = 0; i < idCpu.length; i++) {
+            if (idCpu[i].checked) {
+                if (idString == "") {
+                    idString = "6-" + idCpu[i].name;
+                }
+                else {
+                    idString = idString + "_6-" + idCpu[i].name;
+                }
+            }
+        }
+        var idGen = $('#7').find('input[type=checkbox]');
+        for (var i = 0; i < idGen.length; i++) {
+            if (idGen[i].checked) {
+                if (idString == "") {
+                    idString = "7-" + idGen[i].name;
+                }
+                else {
+                    idString = idString + "_7-" + idGen[i].name;
+                }
+            }
+        }
+        var idMemory = $('#8').find('input[type=checkbox]');
+        for (var i = 0; i < idMemory.length; i++) {
+            if (idMemory[i].checked) {
+                if (idString == "") {
+                    idString = "8-" + idMemory[i].name;
+                }
+                else {
+                    idString = idString + "_8-" + idMemory[i].name;
+                }
+            }
+        }
+        
+        
+        $.getJSON(uri + "/" + idString).done(function (data) { 
+            $.each(data, function (key, item) { 
+                $('<li>', { text: formatItem(item) }).appendTo($('#laptop')); 
+            });         
+        }).fail(function (jqXHR,textStatus,err) { 
+            $('#laptop').text('Error:' + err); 
+        }); 
+ 
+    } 
+</script> 
