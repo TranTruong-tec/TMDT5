@@ -13,10 +13,10 @@ namespace TMDT_5.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TMDT5Entities : DbContext
+    public partial class TMDT5Entities1 : DbContext
     {
-        public TMDT5Entities()
-            : base("name=TMDT5Entities")
+        public TMDT5Entities1()
+            : base("name=TMDT5Entities1")
         {
         }
     

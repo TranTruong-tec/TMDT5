@@ -11,7 +11,7 @@ namespace TMDT_5.Controllers
 {
     public class LapTopAPIController : ApiController
     {
-        TMDT5Entities db = new TMDT5Entities();
+        TMDT5Entities1 db = new TMDT5Entities1();
         public IEnumerable<laptop> getAll()
         {
             var searchQuery = db.laptops;

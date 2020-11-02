@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,7 +75,6 @@
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PredicateExtensions">
@@ -269,9 +269,6 @@
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <EntityDeploy Include="Models\TMDT5.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TMDT5.Designer.cs</LastGenOutput>
@@ -330,10 +327,13 @@
     <Content Include="Views\LapTop\Index.cshtml" />
     <Content Include="Views\LapTop\getScreenResolution.cshtml" />
     <Content Include="Views\LapTop\getInch.cshtml" />
-    <Content Include="Views\LapTop\getType.cshtml" />
     <Content Include="Views\LapTop\getRam.cshtml" />
     <Content Include="Views\LapTop\getMemory.cshtml" />
-    <Content Include="Views\LapTop\getGen.cshtml" />
+    <Content Include="Views\LapTop\getTerm.cshtml" />
+    <Content Include="Views\LapTop\getOS.cshtml" />
+    <Content Include="Views\LapTop\getGPU.cshtml" />
+    <Content Include="Views\LapTop\getSpeed.cshtml" />
+    <Content Include="Views\LapTop\getWeight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

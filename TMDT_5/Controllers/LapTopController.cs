@@ -10,11 +10,17 @@ namespace TMDT_5.Controllers
     public class LapTopController : Controller
     {
         // GET: LapTop
-        TMDT5Entities db = new TMDT5Entities();
+        
+        TMDT5Entities1 db = new TMDT5Entities1();
 
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult getTerm()
+        {
+            var ListTerm = db.laptops.GroupBy(l => l.Product).Select(l => l.Key);
+            return PartialView(ListTerm);
         }
         public ActionResult getCompany()
         {
@@ -51,10 +57,26 @@ namespace TMDT_5.Controllers
             var ListMemory = db.laptops.GroupBy(l => l.Memory).Select(l => l.Key);
             return PartialView(ListMemory);
         }
-        public ActionResult getGen()
+        public ActionResult getSpeed()
         {
-            var ListGen = db.laptops.GroupBy(l => l.Gen).Select(l => l.Key);
-            return PartialView(ListGen);
+            var Listspeed = db.laptops.GroupBy(l => l.Speed).Select(l => l.Key);
+            return PartialView(Listspeed);
+        }
+
+        public ActionResult getOS()
+        {
+            var ListOS = db.laptops.GroupBy(l => l.OpSys).Select(l => l.Key);
+            return PartialView(ListOS);
+        }
+        public ActionResult getGPU()
+        {
+            var ListGPU = db.laptops.GroupBy(l => l.Gpu).Select(l => l.Key);
+            return PartialView(ListGPU);
+        }
+        public ActionResult getWeight()
+        {
+            var ListWeight = db.laptops.GroupBy(l => l.Weight).Select(l => l.Key);
+            return PartialView(ListWeight);
         }
         /// Sv tự thêm các thông tin khác 
     }

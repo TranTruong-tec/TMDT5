@@ -94,7 +94,7 @@ namespace TMDT_5.Helper
         }
 
 
-        public IEnumerable<laptop> Build(TMDT5Entities Entities)
+        public IEnumerable<laptop> Build(TMDT5Entities1 Entities)
         {
             var predicate = PredicateExtensions.PredicateExtensions.Begin<laptop>();
             //search term 

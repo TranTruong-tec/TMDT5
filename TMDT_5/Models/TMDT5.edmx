@@ -53,7 +53,7 @@
           <Property Name="Weight" Type="Double" />
           <Property Name="Price_euros" Type="Double" />
         </EntityType>
-        <EntityContainer Name="TMDT5Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TMDT5Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="laptops" EntityType="Self.laptop" />
         </EntityContainer>
       </Schema>
@@ -61,7 +61,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TMDT5ModelStoreContainer" CdmEntityContainer="TMDT5Entities">
+        <EntityContainerMapping StorageEntityContainer="TMDT5ModelStoreContainer" CdmEntityContainer="TMDT5Entities1">
           <EntitySetMapping Name="laptops">
             <EntityTypeMapping TypeName="TMDT5Model.laptop">
               <MappingFragment StoreEntitySet="laptops">
