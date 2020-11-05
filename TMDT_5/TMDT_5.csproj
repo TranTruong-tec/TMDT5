@@ -334,6 +334,7 @@
     <Content Include="Views\LapTop\getGPU.cshtml" />
     <Content Include="Views\LapTop\getSpeed.cshtml" />
     <Content Include="Views\LapTop\getWeight.cshtml" />
+    <Content Include="Views\LapTop\getPriceLow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -78,6 +78,16 @@ namespace TMDT_5.Controllers
             var ListWeight = db.laptops.GroupBy(l => l.Weight).Select(l => l.Key);
             return PartialView(ListWeight);
         }
+        public ActionResult getPriceLow()
+        {
+            var ListPriceLow = db.laptops.GroupBy(l => l.Price_euros).Select(l => l.Key);
+            return PartialView(ListPriceLow);
+        }
+        public ActionResult getPriceHight()
+        {
+            var ListPriceHight = db.laptops.GroupBy(l => l.Price_euros).Select(l => l.Key);
+            return PartialView(ListPriceHight);
+        }
         /// Sv tự thêm các thông tin khác 
     }
 

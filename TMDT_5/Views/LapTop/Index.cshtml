@@ -31,6 +31,8 @@
 <br />
 @{Html.RenderAction("getOS", "Laptop"); } @*11*@
 <br />
+@{Html.RenderAction("getPriceLow", "Laptop"); } @*12*@
+<br />
 @{Html.RenderAction("getWeight", "Laptop"); } @*14*@
 <br />
 
@@ -175,6 +177,17 @@
                 }
             }
         }
+        var id12 = $('#12').find('input[type=checkbox]');
+        for (var i = 0; i < id12.length; i++) {
+            if (id12[i].checked) {
+                if (idString == "") {
+                    idString = "12-" + id12[i].name;
+                }
+                else {
+                    idString = idString + "12-" + id12[i].name;
+                }
+            }
+        }
         var idWeight = $('#14').find('input[type=checkbox]');
         for (var i = 0; i < idWeight.length; i++) {
             if (idWeight[i].checked) {
@@ -188,7 +201,7 @@
         }
 
 
-        $.getJSON(uri + "/" + idString).done(function (data) {
+        $.getJSON(uri + "/" + idString.replace(/\./g,',').replace(/^_/,"")).done(function (data) {
             $.each(data, function (key, item) {
                 $('<li>', { text: formatItem(item) }).appendTo($('#laptop'));
             });
